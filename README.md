@@ -48,5 +48,4 @@ npm run db:backup
 npm run db:status
 ```
 
-SQL ファイル名や URL は `package.json` の `db:refresh` を編集してください。
-
+SQL ファイル名や URL は `sql-tools/sql.config.json` を編集してください。
