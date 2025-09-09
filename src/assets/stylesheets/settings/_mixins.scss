@@ -1,0 +1,130 @@
+@mixin fontSora($weight: 400) {
+  font-family: 'Sora', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin fontZenKakuGothicNew($weight: 400) {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin hoverImgOverlayBefore {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 70, 129, 0);
+    transition: background-color 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+@mixin hoverImgOverlayAfter {
+  &::before {
+    background-color: rgba(45, 70, 129, 0.1);
+  }
+}
+
+@mixin hoverImgBoundingBoxBefore {
+  position: relative;
+  span {
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border: 1px solid var(--fontAccentColor);
+    transition: opacity 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:nth-child(1) {
+      top: -4px;
+      left: -4px;
+    }
+    &:nth-child(2) {
+      top: -4px;
+      right: -4px;
+    }
+    &:nth-child(3) {
+      bottom: -4px;
+      right: -4px;
+    }
+    &:nth-child(4) {
+      bottom: -4px;
+      left: -4px;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(45, 70, 129, 0);
+    transition: background-color 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+@mixin hoverImgBoundingBoxAfter {
+  span {
+    opacity: 1;
+  }
+  &::before {
+    background-color: rgba(45, 70, 129, 0.1);
+  }
+}
+
+@mixin hoverArrowPrev {
+  svg {
+    path {
+      transition: stroke 1s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      svg {
+        path {
+          stroke: var(--fontAccentColor);
+          transform: translateX(-1px);
+        }
+      }
+    }
+  }
+}
+@mixin hoverArrowNext {
+  svg {
+    path {
+      transition: stroke 1s cubic-bezier(0.25, 0.8, 0.25, 1),
+        transform 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      svg {
+        path {
+          stroke: var(--fontAccentColor);
+          transform: translateX(1px);
+        }
+      }
+    }
+  }
+}
+
+@mixin hoverText {
+  transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  @media (any-hover: hover) {
+    &:hover {
+      color: var(--fontAccentColor);
+      transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+  }
+}
+

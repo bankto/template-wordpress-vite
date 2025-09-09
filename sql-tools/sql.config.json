@@ -1,0 +1,6 @@
+{
+  "sql": "./sql/***.sql",
+  "sourceUrl": "***",
+  "localUrl": "http://localhost:8888"
+}
+

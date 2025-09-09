@@ -1,0 +1,6 @@
+printWidth: 100 # 1行の最大文字数
+semi: false # 文末にセミコロンを付けない
+singleQuote: true # シングルクォートを使用
+tabWidth: 2 # インデントのスペース数
+endOfLine: lf # OS差異を吸収
+

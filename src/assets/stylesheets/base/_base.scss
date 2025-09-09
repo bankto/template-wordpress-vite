@@ -1,0 +1,22 @@
+@use '../settings/mixins' as *;
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--fontColor);
+}
+
+img {
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+

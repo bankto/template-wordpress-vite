@@ -1,0 +1,73 @@
+@use '../settings/index' as *;
+
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: var(--headerHeight);
+  background: white;
+  .headerInner {
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    @include mq(md) {
+      padding: 0 60px 0 50px;
+    }
+  }
+  .headerLogo {
+    width: 105px;
+    height: auto;
+    @include mq(md) {
+      width: 140px;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .headerButton {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    line-height: 1;
+    font-size: 12px;
+    @include mq(md) {
+      column-gap: 10px;
+      transition: color 0.2s ease-out, filter 0.2s ease-out;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--fontAccentColor);
+        filter: blur(0.5px);
+      }
+    }
+  }
+  .headerButtonIcon {
+    width: 11px;
+    height: auto;
+  }
+  .headerButtonIconClose {
+    display: none;
+    width: 11px;
+    height: auto;
+  }
+}
+
+body.is-open {
+  .headerButtonIcon {
+    display: none;
+  }
+  .headerButtonIconClose {
+    display: block;
+  }
+}
+

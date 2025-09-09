@@ -1,0 +1,38 @@
+{
+  "core": "WordPress/WordPress",
+  "plugins": ["./plugins/advanced-custom-fields-pro"],
+  "themes": ["./wp"],
+  "port": 8888,
+  "phpVersion": "8.2",
+  "env": {
+    "development": {
+      "port": 8888,
+      "config": {
+        "WP_DEBUG": true,
+        "SCRIPT_DEBUG": true,
+        "WP_DEBUG_LOG": true,
+        "WP_DEBUG_DISPLAY": false,
+        "WP_ENVIRONMENT_TYPE": "local",
+        "SAVEQUERIES": false,
+        "CONCATENATE_SCRIPTS": false,
+        "COMPRESS_SCRIPTS": false,
+        "COMPRESS_CSS": false,
+        "WP_CACHE": false,
+        "DISABLE_WP_CRON": false
+      }
+    },
+    "tests": {
+      "port": 8889,
+      "config": {
+        "WP_DEBUG": false,
+        "SCRIPT_DEBUG": false
+      }
+    }
+  },
+  "mappings": {
+    "sql": "./sql",
+    "wp-content/uploads": "./wp-content/uploads",
+    "wp-content/cache": "./wp-content/cache"
+  }
+}
+

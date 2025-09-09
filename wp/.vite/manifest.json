@@ -1,0 +1,48 @@
+{
+  "assets/fonts/KonkhmerSleokchher-Regular.woff2": {
+    "file": "fonts/KonkhmerSleokchher-Regular.woff2",
+    "src": "assets/fonts/KonkhmerSleokchher-Regular.woff2"
+  },
+  "assets/fonts/KottaOne-Regular.woff2": {
+    "file": "fonts/KottaOne-Regular.woff2",
+    "src": "assets/fonts/KottaOne-Regular.woff2"
+  },
+  "assets/fonts/Koulen-Regular.woff2": {
+    "file": "fonts/Koulen-Regular.woff2",
+    "src": "assets/fonts/Koulen-Regular.woff2"
+  },
+  "assets/fonts/Sora-Bold.woff2": {
+    "file": "fonts/Sora-Bold.woff2",
+    "src": "assets/fonts/Sora-Bold.woff2"
+  },
+  "assets/fonts/Sora-Regular.woff2": {
+    "file": "fonts/Sora-Regular.woff2",
+    "src": "assets/fonts/Sora-Regular.woff2"
+  },
+  "assets/fonts/ZenKakuGothicNew-Bold.woff2": {
+    "file": "fonts/ZenKakuGothicNew-Bold.woff2",
+    "src": "assets/fonts/ZenKakuGothicNew-Bold.woff2"
+  },
+  "assets/fonts/ZenKakuGothicNew-Regular.woff2": {
+    "file": "fonts/ZenKakuGothicNew-Regular.woff2",
+    "src": "assets/fonts/ZenKakuGothicNew-Regular.woff2"
+  },
+  "assets/scripts/app.js": {
+    "file": "scripts/script.js",
+    "name": "script",
+    "src": "assets/scripts/app.js",
+    "isEntry": true,
+    "css": [
+      "stylesheets/style.css"
+    ],
+    "assets": [
+      "fonts/Sora-Regular.woff2",
+      "fonts/Sora-Bold.woff2",
+      "fonts/Koulen-Regular.woff2",
+      "fonts/KottaOne-Regular.woff2",
+      "fonts/KonkhmerSleokchher-Regular.woff2",
+      "fonts/ZenKakuGothicNew-Regular.woff2",
+      "fonts/ZenKakuGothicNew-Bold.woff2"
+    ]
+  }
+}

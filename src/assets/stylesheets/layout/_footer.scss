@@ -1,0 +1,192 @@
+@use '../settings/index' as *;
+
+.footer {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 100px;
+  background: white;
+  border-top: 1px solid var(--fontColor);
+  @include mq(md) {
+    z-index: 2;
+    width: calc(100% - var(--menuWidth) + 5px);
+    padding-top: 100px;
+    border-top: none;
+  }
+
+  .instagram {
+    width: 100%;
+    margin: 50px auto 0 0;
+    padding: 0 50px;
+    @include mq(md) {
+      max-width: 1040px;
+      width: calcVw(1040);
+      margin: 50px auto 0;
+      padding: 0;
+    }
+    .instagramHeading {
+      @include fontSora(700);
+      font-size: 14px;
+    }
+    .instagramList {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      @include mq(md) {
+        justify-content: flex-start;
+        column-gap: 50px;
+      }
+    }
+    .instagramItem {
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        line-height: 15px;
+        @include fontSora();
+        font-size: 14px;
+        @include hoverText;
+        @media (hover: hover) {
+          &:hover {
+            svg {
+              path {
+                fill: var(--fontAccentColor);
+              }
+            }
+          }
+        }
+      }
+      svg {
+        width: 15px;
+        height: auto;
+        path {
+          fill: var(--fontColor);
+          transition: fill 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+      }
+    }
+  }
+
+  .footerNav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 50px;
+    @include mq(md) {
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap: 30px;
+      max-width: 1040px;
+      width: calcVw(1040);
+      margin: 0 auto;
+      padding: 0;
+    }
+    .footerNavList {
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+      @include mq(md) {
+        flex-direction: row;
+        column-gap: 30px;
+      }
+    }
+    .footerNavItem {
+      a {
+        @include fontSora();
+        font-size: 14px;
+        @include hoverText;
+      }
+      &.is-disabled {
+        pointer-events: none;
+        a {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+
+  .footerShop {
+    display: none;
+    @include mq(md) {
+      display: block;
+      max-width: 1040px;
+      width: calcVw(1040);
+      margin: 50px auto 0;
+    }
+    .footerShopList {
+      display: flex;
+      column-gap: 50px;
+    }
+    .footerShopName {
+      @include fontSora(700);
+      font-size: 14px;
+    }
+    .footerShopText {
+      @include fontSora();
+      margin-top: 10px;
+      font-size: 14px;
+      a {
+        font-size: 14px;
+        @include hoverText;
+      }
+    }
+  }
+  .illustrationAnimation {
+    display: none;
+    position: relative;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    img {
+      display: block;
+      width: 300px;
+      height: auto;
+      margin-left: auto;
+    }
+    .isInsect {
+      display: none;
+    }
+  }
+}
+
+.fixedShop {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--fixedShopHeight);
+  padding: 0 25px;
+  background: white;
+  border-top: 1px solid var(--fontColor);
+  @include mq(md) {
+    display: none;
+  }
+  .fixedShopList {
+    display: flex;
+    column-gap: 25px;
+    width: 100%;
+  }
+  .fixedShopItem {
+    width: calc(100% / 3);
+    a {
+      display: block;
+    }
+  }
+  .fixedShopName {
+    text-align: center;
+    line-height: 100%;
+    font-family: 'Konkhmer Sleokchher', system-ui;
+    font-size: 11px;
+  }
+  .fixedShopAddress {
+    margin-top: 5px;
+    line-height: 100%;
+    text-align: center;
+    font-family: 'Kotta One', serif;
+    font-size: 10px;
+  }
+}
+

@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+// ブレイクポイント設定
+// モバイルファーストアプローチのためのブレイクポイント変数とmixin
+
+// ブレイクポイント値の定義（px）
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);
+
+// モバイルファースト用mixin（min-width）
+@mixin mq($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $min-width: map.get($breakpoints, $bp);
+    @media (min-width: $min-width) {
+      @content;
+    }
+  } @else {
+    @error "指定されたブレイクポイント '#{$bp}' は定義されていません。利用可能なブレイクポイント: #{map.keys($breakpoints)}";
+  }
+}
+
+// 特定の範囲のみに適用するmixin（オプション）
+@mixin mq-range($bp-from, $bp-to) {
+  @if map.has-key($breakpoints, $bp-from) and map.has-key($breakpoints, $bp-to) {
+    $min: map.get($breakpoints, $bp-from);
+    $max: map.get($breakpoints, $bp-to) - 0.1px;
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @error "指定されたブレイクポイントが定義されていません。利用可能なブレイクポイント: #{map.keys($breakpoints)}";
+  }
+}
+
+// デスクトップファースト用mixin（max-width）- 必要な場合のみ使用
+@mixin mq-down($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    $max: map.get($breakpoints, $bp) - 0.1px;
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @error "指定されたブレイクポイント '#{$bp}' は定義されていません。利用可能なブレイクポイント: #{map.keys($breakpoints)}";
+  }
+}
