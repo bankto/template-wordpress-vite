@@ -1,0 +1,3 @@
+{
+  "plugins": [{ "type": "repo", "slug": "hello-dolly", "version": "1.7.3", "activate": true }]
+}

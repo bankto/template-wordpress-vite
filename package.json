@@ -1,17 +1,18 @@
 {
-  "name": "bankto",
+  "name": "tenplate-wordpress-vite",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "wp-env start && npm run vite:dev",
+    "dev": "wp-env start && npm run plugins:sync && npm run vite:dev",
     "vite:dev": "vite --host localhost --port 5175",
     "vite:build": "vite build",
     "wp:start": "wp-env start",
     "wp:stop": "wp-env stop",
-    "db:refresh": "node ./sql-tools/sql-refresh.mjs",
+    "db:refresh": "node ./tools/sql-refresh.mjs",
     "db:backup": "wp-env run cli wp db export ./sql/backup-$(date +%Y%m%d-%H%M%S).sql",
-    "db:status": "wp-env run cli wp db check"
+    "db:status": "wp-env run cli wp db check",
+    "plugins:sync": "node ./tools/plugins-sync.mjs"
   },
   "type": "module",
   "keywords": [],

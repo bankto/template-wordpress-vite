@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const projectRoot = process.cwd()
-const configPath = path.resolve(projectRoot, 'sql-tools/sql.config.json')
+const configPath = path.resolve(projectRoot, 'tools/sql.config.json')
 
 const readConfig = () => {
   try {
@@ -27,20 +27,19 @@ const parseArgs = () => {
 const cfg = readConfig()
 const cli = parseArgs()
 
-// 固有名詞に依存しない。必須値（sql, sourceUrl）は設定/引数/環境変数から取得。
 const sql = process.env.DB_SQL || cli.sql || cfg.sql
 const sourceUrl = process.env.SOURCE_URL || cli.sourceUrl || cfg.sourceUrl
 const localUrl = process.env.LOCAL_URL || cli.localUrl || cfg.localUrl || 'http://localhost:8888'
 
 if (!sql) {
   console.error(
-    '[sql-refresh] Missing SQL path. Set sql-tools/sql.config.json "sql" or pass --sql or DB_SQL'
+    '[sql-refresh] Missing SQL path. Set tools/sql.config.json "sql" or pass --sql or DB_SQL'
   )
   process.exit(1)
 }
 if (!sourceUrl) {
   console.error(
-    '[sql-refresh] Missing sourceUrl. Set sql-tools/sql.config.json "sourceUrl" or pass --from or SOURCE_URL'
+    '[sql-refresh] Missing sourceUrl. Set tools/sql.config.json "sourceUrl" or pass --from or SOURCE_URL'
   )
   process.exit(1)
 }
@@ -58,7 +57,6 @@ try {
   try {
     execSync('npm run wp:restart', { stdio: 'inherit' })
   } catch (_) {
-    // フォールバック（直接 stop/start）
     execSync('wp-env stop', { stdio: 'inherit' })
     execSync('wp-env start', { stdio: 'inherit' })
   }
